@@ -24,7 +24,10 @@
 │       └── update.md
 ├── example
 │   └── work
-│       ├── constraints.md
+│       ├── common
+│       │   ├── constraints.md
+│       │   ├── techstack.md
+│       │   └── testing.md
 │       ├── phase-1
 │       │   ├── kanban.md
 │       │   ├── requirements.md
@@ -34,17 +37,15 @@
 │       │       │   └── task.md
 │       │       └── 002-feature-name
 │       │           └── task.md
-│       ├── phase-2
-│       │   ├── kanban.md
-│       │   ├── requirements.md
-│       │   ├── spec.md
-│       │   └── tasks
-│       │       ├── 001-feature-name
-│       │       │   └── task.md
-│       │       └── 002-feature-name
-│       │           └── task.md
-│       ├── techstack.md
-│       └── testing.md
+│       └── phase-2
+│           ├── kanban.md
+│           ├── requirements.md
+│           ├── spec.md
+│           └── tasks
+│               ├── 001-feature-name
+│               │   └── task.md
+│               └── 002-feature-name
+│                   └── task.md
 ├── policy.md
 ├── README.md
 ├── scripts
@@ -73,7 +74,10 @@ flowchart LR
 
 ```
 work
-├── constraints.md
+├── common
+│   ├── constraints.md
+│   ├── techstack.md
+│   └── testing.md
 ├── phase-1
 │   ├── kanban.md
 │   ├── requirements.md
@@ -83,15 +87,13 @@ work
 │       │   └── task.md
 │       └── 002-feature-name
 │           └── task.md
-├── phase-2
-│   ├── kanban.md
-│   ├── requirements.md
-│   ├── spec.md
-│   └── tasks
-│       ├── 001-feature-name
-│       │   └── task.md
-│       └── 002-feature-name
-│           └── task.md
-├── techstack.md
-└── testing.md
+└── phase-2
+    ├── kanban.md
+    ├── requirements.md
+    ├── spec.md
+    └── tasks
+        ├── 001-feature-name
+        │   └── task.md
+        └── 002-feature-name
+            └── task.md
 ```
