@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "moduleResolution": "nodenext",
+    "strict": true,
+    "module": "NodeNext",
+    "outDir": "./dist",
+    "resolveJsonModule": true
+  }
+}

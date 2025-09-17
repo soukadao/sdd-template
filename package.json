@@ -1,0 +1,24 @@
+{
+  "name": "@soukadao/spec",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && chmod 755 dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soukadao/sdd-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soukadao/sdd-template/issues"
+  },
+  "homepage": "https://github.com/soukadao/sdd-template#readme",
+  "devDependencies": {
+    "@types/node": "^24.5.1",
+    "typescript": "^5.9.2"
+  }
+}
