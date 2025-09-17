@@ -1,3 +1,7 @@
+---
+date_format: 'YYYY年MM月DD日'
+---
+
 # カンバンボード
 
 「カンバンボード」はタスクの状態を視覚化する管理ツールです。
@@ -6,14 +10,15 @@
 - **In-Progress**: 「着手中」の状態を表す。
 - **Done**: 「完了」の状態を表す。
 
+## ボード
+
+最終更新日: [FORMAT_DATE]
+
 <!-- 
 Example
 
 * リンク(link)は`markdown`のファイルパスを示す。
-* ファイルパスは`./tasks/*.md`
-* 最終更新日のフォーマットは`XXXX年XX月XX日`
-
-最終更新日: [DATE]
+* ファイルパスは`/tasks/*.md`
 
 |      Backlog      |    In-Progress    |       Done        |
 | ----------------- | ----------------- | ----------------- |
@@ -22,12 +27,5 @@ Example
 | [Task Name](link) | [Task Name](link) | [Task Name](link) |
 -->
 
-## ボード
-
-最終更新日: [DATE]
-
 |      Backlog      |    In-Progress    |       Done        |
 | ----------------- | ----------------- | ----------------- |
-| [Task Name](link) | [Task Name](link) | [Task Name](link) |
-| [Task Name](link) | [Task Name](link) | [Task Name](link) |
-| [Task Name](link) | [Task Name](link) | [Task Name](link) |

@@ -29,6 +29,3 @@ Example
 
 |      Backlog      |    In-Progress    |       Done        |
 | ----------------- | ----------------- | ----------------- |
-| [Task Name](link) | [Task Name](link) | [Task Name](link) |
-| [Task Name](link) | [Task Name](link) | [Task Name](link) |
-| [Task Name](link) | [Task Name](link) | [Task Name](link) |
