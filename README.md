@@ -11,6 +11,7 @@
 ```
 work
 ├── phase-1
+│   ├── kanban.md
 │   ├── requirements.md
 │   ├── spec.md
 │   └── tasks
@@ -19,6 +20,7 @@ work
 │       └── 002-feature-name
 │           └── task.md
 └── phase-2
+    ├── kanban.md
     ├── requirements.md
     ├── spec.md
     └── tasks
