@@ -1,5 +1,6 @@
 ---
-date_format: 'YYYY年MM月DD日'
+format:
+    date: 'YYYY年MM月DD日'
 documents:
     teckstack: /teckstack.md
     testing: /testing.md

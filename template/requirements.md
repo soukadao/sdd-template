@@ -1,5 +1,7 @@
 ---
-date_format: 'YYYY年MM月DD日'
+format:
+    date: 'YYYY年MM月DD日'
+    requirements_id: 'R###'
 ---
 
 # 要求定義書
@@ -31,6 +33,6 @@ date_format: 'YYYY年MM月DD日'
 
     |       ID       |     要求事項     |    現状・課題   |
     | -------------- | -------------- | -------------- |
-    | R0001          | Content Cell   | Content Cell   |
-    | R0002          | Content Cell   | Content Cell   |
+    | R001           | Content Cell   | Content Cell   |
+    | R002           | Content Cell   | Content Cell   |
 -->
