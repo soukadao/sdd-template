@@ -9,6 +9,29 @@
 - template: テンプレート
 - example: 仕様駆動開発例
 
+```
+.spec
+├── commands
+│   ├── requirements
+│   │   ├── create.md
+│   │   └── update.md
+│   ├── spec
+│   │   ├── create.md
+│   │   └── update.md
+│   └── task
+│       ├── create.md
+│       ├── execute.md
+│       └── update.md
+├── work
+├── policy.md
+├── scripts
+└── template
+    ├── kanban.md
+    ├── requirements.md
+    ├── spec.md
+    └── task.md
+```
+
 ## 開発フロー案
 
 ```mermaid
