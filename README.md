@@ -26,9 +26,10 @@
 │   └── work
 │       ├── common
 │       │   ├── constraints.md
+│       │   ├── project-structure.md
 │       │   ├── techstack.md
 │       │   └── testing.md
-│       ├── phase-1
+│       ├── phase-00001
 │       │   ├── kanban.md
 │       │   ├── requirements.md
 │       │   ├── spec.md
@@ -37,7 +38,7 @@
 │       │       │   └── task.md
 │       │       └── 002-feature-name
 │       │           └── task.md
-│       └── phase-2
+│       └── phase-00002
 │           ├── kanban.md
 │           ├── requirements.md
 │           ├── spec.md
@@ -46,15 +47,21 @@
 │               │   └── task.md
 │               └── 002-feature-name
 │                   └── task.md
-├── policy.md
 ├── README.md
 ├── scripts
 │   └── init.sh
-└── template
-    ├── kanban.md
-    ├── requirements.md
-    ├── spec.md
-    └── task.md
+├── template
+│   ├── kanban.md
+│   ├── requirements.md
+│   ├── spec.md
+│   └── task.md
+└── work
+    └── common
+        ├── constraints.md
+        ├── policy.md
+        ├── project-structure.md
+        ├── techstack.md
+        └── testing.md
 ```
 
 ## 開発フロー案

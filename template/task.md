@@ -14,9 +14,9 @@ Example
 - **dir-name**: 001-feature-name, 002-feature-name, ...
 -->
 
-- ブランチ名: `phase-name_dir-name`
-- 要求仕様書: `/phase-name/requirements.md`
-- 機能仕様書: `/phase-name/spec.md`
+- ブランチ名: `phase-#####_dir-name`
+- 要求仕様書: `/phase-#####/requirements.md`
+- 機能仕様書: `/phase-#####/spec.md`
 - 機能仕様ID: `R###`
 
 ステータス: [ステータス]
