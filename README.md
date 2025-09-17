@@ -10,7 +10,7 @@
 - example: 仕様駆動開発例
 
 ```
-.spec
+.
 ├── commands
 │   ├── requirements
 │   │   ├── create.md
@@ -22,12 +22,33 @@
 │       ├── create.md
 │       ├── execute.md
 │       └── update.md
-├── work
-│    ├── constraints.md
-│    ├── techstack.md
-│    └── testing.md
+├── example
+│   └── work
+│       ├── constraints.md
+│       ├── phase-1
+│       │   ├── kanban.md
+│       │   ├── requirements.md
+│       │   ├── spec.md
+│       │   └── tasks
+│       │       ├── 001-feature-name
+│       │       │   └── task.md
+│       │       └── 002-feature-name
+│       │           └── task.md
+│       ├── phase-2
+│       │   ├── kanban.md
+│       │   ├── requirements.md
+│       │   ├── spec.md
+│       │   └── tasks
+│       │       ├── 001-feature-name
+│       │       │   └── task.md
+│       │       └── 002-feature-name
+│       │           └── task.md
+│       ├── techstack.md
+│       └── testing.md
 ├── policy.md
+├── README.md
 ├── scripts
+│   └── init.sh
 └── template
     ├── kanban.md
     ├── requirements.md
