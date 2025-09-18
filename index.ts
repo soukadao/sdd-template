@@ -117,10 +117,10 @@ async function downloadTemplate(specDir: string) {
 
     // 解凍されたディレクトリから必要なディレクトリを移動
     const extractedDir = path.join(specDir, 'sdd-template-main');
-    const targetDirs = ['commands', 'template', 'work', 'scripts']; 
+    const targetDirs = ['commands', 'template', 'work', 'scripts'];
 
     for (const dir of targetDirs) {
-      const sourcePath = path.join(extractedDir, dir);
+      const sourcePath = path.join(extractedDir, 'package', dir);
       const destPath = path.join(specDir, dir);
 
       if (existsSync(sourcePath)) {
