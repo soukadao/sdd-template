@@ -52,7 +52,7 @@ PHASE_DIR="$WORK_DIR/$PHASE_NAME"
 mkdir -p "$PHASE_DIR"
 
 # Copy requirements.md template
-REQUIREMENTS_TEMPLATE="$REPO_ROOT/template/requirements.md"
+REQUIREMENTS_TEMPLATE="$REPO_ROOT/.spec/template/requirements.md"
 REQUIREMENTS_FILE="$PHASE_DIR/requirements.md"
 
 cp "$REQUIREMENTS_TEMPLATE" "$REQUIREMENTS_FILE"
