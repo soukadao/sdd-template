@@ -2,6 +2,7 @@
 format:
     date: 'YYYY年MM月DD日'
     requirements_id: 'R###'
+    priority: 'P#'
 ---
 
 # 要求定義書
@@ -23,18 +24,17 @@ format:
 <!-- 
     要求事項をテーブルで記載する
 
-    === 優先度(P0 ~ P4) ===
+    優先度(P0 ~ P3)
 
-    P0 => 必須
-    P1 => 高
-    P2 => 中
-    P3 => 低
-    P4 => 対象外
+    - P0 => 必須
+    - P1 => 高
+    - P2 => 中
+    - P3 => 低
 
-    フォーマット
+    Example
 
-    |       ID       |     要求事項     |    現状・課題   |
-    | -------------- | -------------- | -------------- |
-    | R001           | Content Cell   | Content Cell   |
-    | R002           | Content Cell   | Content Cell   |
+    |       ID       |     優先度      |     要求事項     |    現状・課題   |
+    | -------------- | -------------- | -------------- | -------------- |
+    | R001           | P1             | Content Cell   | Content Cell   |
+    | R002           | P0             | Content Cell   | Content Cell   |
 -->

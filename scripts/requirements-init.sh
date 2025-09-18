@@ -65,8 +65,4 @@ else
     echo "PHASE_NAME: $PHASE_NAME"
     echo "PHASE_DIR: $PHASE_DIR"
     echo "PHASE_NUM: $PHASE_NUM"
-    echo ""
-    echo "Created phase directory structure:"
-    echo "  $PHASE_DIR/"
-    echo "  └── requirements.md"
 fi
