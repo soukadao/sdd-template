@@ -5,10 +5,6 @@
 
 ## リポジトリ構成
 
-- commands: コマンド
-- template: テンプレート
-- example: 仕様駆動開発例
-
 ```
 .
 ├── commands
@@ -64,6 +60,22 @@
         └── testing.md
 ```
 
+## 使用方法
+
+### 初回セットアップ
+
+```bash
+npx git+https://github.com/soukadao/sdd-template.git
+```
+
+### 要求仕様書を作成する
+
+Claude Code を使用する場合
+
+```
+> /requirements:create 足し算ができるようにしたい
+```
+
 ## 開発フロー案
 
 ```mermaid
@@ -111,3 +123,4 @@ TODO:
 
 次のフェーズを作成するタイミングで`Backlog`のタスクがあれば持ち越しとみなす？
 要求の変更や仕様の変更にどう対応するか？
+
