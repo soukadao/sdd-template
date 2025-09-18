@@ -11,3 +11,4 @@ argument-hint: [phase-number]
 2. `.spec/work/$1/spec.md`を読み込んで内容を理解してください。
 3. `.spec/work/$1/requirements.md`を読み込んで内容を理解してください。
 4. 読み込んだ要求定義書から機能仕様書を作成してください。
+5. 関連するドキュメントを更新してください。

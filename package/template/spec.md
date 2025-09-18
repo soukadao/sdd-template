@@ -1,10 +1,12 @@
 ---
 format:
     date: '+%Y年%m月%d日'
-documents:
-    teckstack: /teckstack.md
-    testing: /testing.md
+related_documents:
+    teckstack: .spec/work/common/teckstack.md
+    testing: .spec/work/common/testing.md
 ---
+
+<!-- 重要: 必ず関連するドキュメントを読み込むこと -->
 
 # 機能仕様書
 
@@ -77,6 +79,10 @@ xxxxxxxxxxxxxxxxxxxxx
 ### 非機能要件
 
 <!-- この機能に必要な要件を箇条書きで記述する -->
+
+### 使用ライブラリ・パッケージ等
+
+<!-- この機能で使用するライブラリ・パッケージを記述する -->
 
 ### 入力パラメーター
 
