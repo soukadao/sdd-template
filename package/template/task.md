@@ -4,7 +4,6 @@ format:
 status: Backlog | In-Progress | Done
 ---
 
-
 # [タスク名]
 
 <!--
@@ -18,7 +17,24 @@ Example
 - 要求仕様書: `/phase-#####/requirements.md`
 - 機能仕様書: `/phase-#####/spec.md`
 - 機能仕様ID: `R###`
+- ファイルパス: [FILE_PATH]
+- ファイル名: [FILE_PATH]
 
-ステータス: [ステータス]
+ステータス: [STATUS]
 
 最終更新日: [FORMAT_DATE]
+
+## 実行計画
+
+<!--
+
+Example
+
+- [] To-Be item
+- [] To-Be item
+- [] To-Be item
+- [] To-Be item
+- [] To-Be item
+
+-->
+

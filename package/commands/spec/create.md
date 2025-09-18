@@ -7,8 +7,15 @@ argument-hint: [phase-number]
 
 ユーザーから受けたコンテキストから以下を実行してください。
 
+**重要**: テンプレートのコメントは消さないこと
+
 1. テンプレート(`.spec/template/spec.md`)を`.spec/work/$1/spec.md`にコピーする
 2. `.spec/work/$1/spec.md`を読み込んで内容を理解してください。
 3. `.spec/work/$1/requirements.md`を読み込んで内容を理解してください。
 4. 読み込んだ要求定義書から機能仕様書を作成してください。
-5. 関連するドキュメントを更新してください。
+5. 関連ドキュメントを更新してください。
+
+**更新対象の関連ドキュメント**
+
+- `.spec/work/common/teckstack.md`
+- `.spec/work/common/testing.md`

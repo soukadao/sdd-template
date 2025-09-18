@@ -73,7 +73,11 @@ npx -y git+https://github.com/soukadao/sdd-template.git
 Claude Code を使用する場合
 
 ```
-mv .spec/commands/* .claude/commands
+// .claude/commads ディレクトリが存在しない場合
+mv .spec/commands .claude/commands
+
+// .claude/commads ディレクトリが存在する場合
+mv .spec/commands/* .claude
 ```
 
 ### 要求仕様書を作成する
@@ -82,6 +86,30 @@ Claude Code を使用する場合
 
 ```
 > /requirements:create 足し算ができるようにしたい
+```
+
+### 要求仕様書を更新する
+
+Claude Code を使用する場合
+
+```
+> /requirements:update 引き算ができるようにしたい
+```
+
+### 機能仕様書を作成する
+
+Claude Code を使用する場合
+
+```
+> /spec:create phase-00001
+```
+
+### 機能仕様書を更新する
+
+Claude Code を使用する場合
+
+```
+> /spec:create phase-00001 
 ```
 
 ## 開発フロー案
