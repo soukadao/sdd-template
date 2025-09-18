@@ -79,14 +79,30 @@ Claude Code を使用する場合
 ## 開発フロー案
 
 ```mermaid
-flowchart LR
-    requirements["要求定義"]
-    spec["仕様定義"]
-    task["タスク化"]
-    execute["タスク実行"]
-    requirements --> spec
-    spec --> task
-    task --> execute
+sequenceDiagram
+    participant Dev as 開発者
+    participant Req as 要求定義
+    participant Spec as 仕様定義
+    participant Task as タスク化
+    participant Exec as タスク実行
+
+    Dev->>Req: 要求を定義
+    loop 要求の詳細化
+        Req->>Req: 要求を更新
+    end
+
+    Req->>Spec: 要求から仕様を作成
+    loop 仕様の詳細化
+        Spec->>Spec: 仕様を更新
+    end
+
+    Spec->>Task: 仕様からタスクを作成
+    loop タスクの詳細化
+        Task->>Task: タスクを更新
+    end
+
+    Task->>Exec: タスクを実行
+    Exec-->>Dev: 実行結果
 ```
 
 ## 仕様駆動開発の構成案
