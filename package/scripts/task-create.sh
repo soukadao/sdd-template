@@ -40,7 +40,7 @@ fi
 REPO_ROOT=$(git rev-parse --show-toplevel)
 
 # Template path
-TEMPLATE_PATH="$REPO_ROOT/package/template/task.md"
+TEMPLATE_PATH="$REPO_ROOT/.spec/template/task.md"
 
 # Target directory for task files
 TASK_DIR="$REPO_ROOT/.spec/work/$PHASE_NUMBER/tasks"
