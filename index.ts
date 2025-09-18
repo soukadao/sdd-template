@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { spawn } from "node:child_process";
 import { existsSync, mkdirSync, createWriteStream, unlinkSync, rmSync, renameSync } from "node:fs";
 import * as https from "node:https";
