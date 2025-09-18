@@ -1,6 +1,6 @@
 ---
 format:
-    date: 'YYYY年MM月DD日'
+    date: '+%Y年%m月%d日'
 ---
 
 # カンバンボード
