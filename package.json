@@ -2,9 +2,11 @@
   "name": "@soukadao/spec",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "bin": "./dist/index.js",
   "scripts": {
-    "build": "tsc && chmod 755 dist/index.js"
+    "build": "tsc && chmod 755 dist/index.js",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
