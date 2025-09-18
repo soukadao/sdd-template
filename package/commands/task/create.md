@@ -12,4 +12,5 @@ argument-hint: [phase-number]
 1. `.spec/work/$1/requirements.md`を読み込んで内容を理解してください。
 2. `.spec/work/$1/spec.md`を読み込んで内容を理解してください。
 3. 読み込んだ内容を元にタスクを分割してください。依存関係がある場合に実行順序を整理してタスクを作成してください。
-4. 追加したファイルは`.spec/work/common/project-structure.md`を更新してください。
+4. タスクファイルは`.spec/scripts/task-create.sh --json [feature-name]`スクリプトを実行し、xとx出力を解析します。すべてのファイルパスは絶対パスである必要があります。
+5. 追加したファイルは`.spec/work/common/project-structure.md`を更新してください。
