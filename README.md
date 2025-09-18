@@ -87,17 +87,17 @@ sequenceDiagram
     participant Exec as タスク実行
 
     Dev->>Req: 要求を定義
-    loop 要求の詳細化
+    loop 詳細化
         Req->>Req: 要求を更新
     end
 
     Req->>Spec: 要求から仕様を作成
-    loop 仕様の詳細化
+    loop 詳細化
         Spec->>Spec: 仕様を更新
     end
 
     Spec->>Task: 仕様からタスクを作成
-    loop タスクの詳細化
+    loop 詳細化
         Task->>Task: タスクを更新
     end
 
