@@ -1,7 +1,7 @@
 ---
 format:
     date: '+%Y年%m月%d日'
-related_documents:
+related-documents:
     teckstack: .spec/work/common/teckstack.md
     testing: .spec/work/common/testing.md
 ---

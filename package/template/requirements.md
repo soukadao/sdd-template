@@ -1,7 +1,7 @@
 ---
 format:
     date: '+%Y年%m月%d日'
-    requirements_id: 'R###'
+    requirements-id: 'R###'
     priority: 'P#'
 ---
 

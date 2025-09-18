@@ -65,7 +65,15 @@
 ### 初回セットアップ
 
 ```bash
-npx git+https://github.com/soukadao/sdd-template.git
+npx -y git+https://github.com/soukadao/sdd-template.git
+```
+
+### コマンドを移動させる
+
+Claude Code を使用する場合
+
+```
+mv .spec/commands/* .claude/commands
 ```
 
 ### 要求仕様書を作成する
