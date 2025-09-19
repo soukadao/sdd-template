@@ -13,7 +13,7 @@ Example
 - **dir-name**: 001-feature-name, 002-feature-name, ...
 -->
 
-- ブランチ名: `phase-#####_dir-name`
+- ブランチ名: `phase-#####/dir-name`
 - 要求仕様書: `/phase-#####/requirements.md`
 - 機能仕様書: `/phase-#####/spec.md`
 - 機能仕様ID: `R###`

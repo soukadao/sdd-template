@@ -14,3 +14,4 @@ argument-hint: [phase-number]
 3. 読み込んだ内容を元にタスクを分割してください。依存関係がある場合に実行順序を整理してタスクを作成してください。
 4. タスクファイルは`.spec/scripts/task-create.sh --json [phase-number] [feature-name]`スクリプトを実行し、TASK_PATH、TASK_FILENAME、TASK_NUM、FEATURE_NAME、PHASE_NUMBERの出力を解析します。すべてのファイルパスは絶対パスである必要があります。
 5. 追加したファイルは`.spec/work/common/project-structure.md`を更新してください。
+6. 作成したタスクを`.spec/work/common/kanban.md`を更新してください。
