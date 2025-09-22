@@ -19,6 +19,7 @@ Example
 - 機能仕様ID: `R###`
 - ファイルパス: [FILE_PATH]
 - ファイル名: [FILE_PATH]
+- 依存関係があるタスク: [TASKS]
 
 ステータス: [STATUS]
 

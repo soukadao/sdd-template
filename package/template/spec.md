@@ -1,12 +1,7 @@
 ---
 format:
     date: '+%Y年%m月%d日'
-related-documents:
-    teckstack: .spec/work/common/teckstack.md
-    testing: .spec/work/common/testing.md
 ---
-
-<!-- 重要: 必ず関連するドキュメントを読み込むこと -->
 
 # 機能仕様書
 
