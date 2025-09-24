@@ -3,7 +3,7 @@ name: 機能仕様書作成
 argument-hint: [phase-number]
 ---
 
-要求定義書を作成します。
+機能仕様書を作成します。
 
 ユーザーから受けたコンテキストから以下を実行してください。
 
@@ -17,5 +17,5 @@ argument-hint: [phase-number]
 
 **更新対象の関連ドキュメント**
 
-- `.spec/work/common/teckstack.md`
+- `.spec/work/common/techstack.md`
 - `.spec/work/common/testing.md`

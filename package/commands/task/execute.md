@@ -12,7 +12,7 @@ argument-hint: [phase-number] [task-name]
 カンバン: `.spec/work/common/kanban.md`
 
 1. `.spec/work/common/develop-policy.md`を読み込んで内容を理解してください。ポリシーに従って開発を進めてください。
-2. `.spec/work/common/teckstack.md`と`.spec/work/common/testing.md`を読み込んで内容を理解してください。
+2. `.spec/work/common/techstack.md`と`.spec/work/common/testing.md`を読み込んで内容を理解してください。
 2. `.spec/work/$1/tasks/$2.md`を読み込んで内容を理解してください。
 3. タスクのステータスとカンバンを`In-Progress`に更新してください。
 4. ブランチを作成してください。その後、作成したブランチに移動してください。

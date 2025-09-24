@@ -15,5 +15,5 @@ argument-hint: [phase-number] [context]
 
 **更新対象の関連ドキュメント**
 
-- `.spec/work/common/teckstack.md`
+- `.spec/work/common/techstack.md`
 - `.spec/work/common/testing.md`

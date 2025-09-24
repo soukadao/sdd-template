@@ -9,5 +9,5 @@ argument-hint: [context]
 
 **重要**: テンプレートのコメントは消さないこと
 
-1. `.spec/work/common/teckstack.md`を読み込んでください。
+1. `.spec/work/common/techstack.md`を読み込んでください。
 2. ユーザーから受けた内容で更新を行なってください。
