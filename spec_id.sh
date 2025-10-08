@@ -3,17 +3,46 @@
 
 WORKFLOW_FILE_NAME="generate-spec-id.yml"
 
-echo "ワークフローを開始します..."
+# 一意なリクエストIDを生成（タイムスタンプ + ランダム値）
+REQUEST_ID="req-$(date +%s)-$$-$RANDOM"
 
-# ワークフロー実行前の最新run_numberを記録
-BEFORE_RUN_NUMBER=$(gh run list --workflow="$WORKFLOW_FILE_NAME" --limit=1 --json number -q '.[0].number // 0')
+echo "ワークフローを開始します... (Request ID: $REQUEST_ID)"
 
-# ワークフローを実行
-gh workflow run "$WORKFLOW_FILE_NAME"
+# リクエストIDを渡してワークフローを実行
+gh workflow run "$WORKFLOW_FILE_NAME" -f request_id="$REQUEST_ID"
+
+echo "自分のワークフローを特定しています..."
+
+# 自分のワークフローが出現するまで待機（最大30秒）
+MY_RUN_NUMBER=""
+for i in {1..15}; do
+  sleep 2
+
+  # 最新のワークフローを取得してログを確認
+  RECENT_RUNS=$(gh run list --workflow="$WORKFLOW_FILE_NAME" --limit=5 --json databaseId,number,status)
+
+  # 各ワークフローのログから自分のREQUEST_IDを探す
+  for run_id in $(echo "$RECENT_RUNS" | jq -r '.[].databaseId'); do
+    # ログを取得してREQUEST_IDが含まれているか確認
+    LOG_CONTENT=$(gh run view "$run_id" --log 2>/dev/null | grep -F "Request ID: $REQUEST_ID" || true)
+
+    if [ -n "$LOG_CONTENT" ]; then
+      # 自分のワークフローを見つけた
+      MY_RUN_NUMBER=$(echo "$RECENT_RUNS" | jq -r --arg id "$run_id" '.[] | select(.databaseId == ($id | tonumber)) | .number')
+      echo "自分のワークフローを特定しました: run_number=$MY_RUN_NUMBER"
+      break 2
+    fi
+  done
+done
+
+if [ -z "$MY_RUN_NUMBER" ]; then
+  echo "エラー: 自分のワークフローを特定できませんでした。"
+  exit 1
+fi
 
 echo "ワークフローの完了を待っています..."
 
-# 新しいワークフローが完了するまで待機（最大120秒）
+# 自分のワークフローが完了するまで待機（最大120秒）
 MAX_WAIT=120
 ELAPSED=0
 
@@ -21,33 +50,31 @@ while [ $ELAPSED -lt $MAX_WAIT ]; do
   sleep 3
   ELAPSED=$((ELAPSED + 3))
 
-  # BEFORE_RUN_NUMBERより大きい番号で、完了したものを探す
-  COMPLETED_RUN=$(gh run list --workflow="$WORKFLOW_FILE_NAME" --limit=10 --json number,status,conclusion,createdAt | \
-    jq -r --arg before "$BEFORE_RUN_NUMBER" '
-      [.[] | select(.number > ($before | tonumber) and .status == "completed")]
-      | sort_by(.createdAt)
-      | .[0]
-      | select(. != null)
+  # 自分のワークフローの状態を確認
+  MY_RUN_STATUS=$(gh run list --workflow="$WORKFLOW_FILE_NAME" --limit=10 --json number,status,conclusion | \
+    jq -r --arg my_number "$MY_RUN_NUMBER" '
+      .[] | select(.number == ($my_number | tonumber))
     ')
 
-  if [ -n "$COMPLETED_RUN" ]; then
-    RUN_NUMBER=$(echo "$COMPLETED_RUN" | jq -r '.number')
-    CONCLUSION=$(echo "$COMPLETED_RUN" | jq -r '.conclusion')
+  if [ -n "$MY_RUN_STATUS" ]; then
+    STATUS=$(echo "$MY_RUN_STATUS" | jq -r '.status')
+    CONCLUSION=$(echo "$MY_RUN_STATUS" | jq -r '.conclusion')
 
-    if [ "$CONCLUSION" != "success" ]; then
-      echo "エラー: ワークフローが失敗しました (conclusion: $CONCLUSION)"
-      exit 1
+    if [ "$STATUS" = "completed" ]; then
+      if [ "$CONCLUSION" != "success" ]; then
+        echo "エラー: ワークフローが失敗しました (conclusion: $CONCLUSION)"
+        exit 1
+      fi
+
+      echo "生成されたSpec ID: $MY_RUN_NUMBER"
+      echo "フォルダ名: spec-$MY_RUN_NUMBER"
+
+      # フォルダを作成
+      mkdir -p ".project/works/spec-$MY_RUN_NUMBER"
+      echo "フォルダを作成しました: .project/works/spec-$MY_RUN_NUMBER"
+
+      exit 0
     fi
-
-    echo "生成されたSpec ID: $RUN_NUMBER"
-    echo "フォルダ名: spec-$RUN_NUMBER"
-
-    # フォルダを作成
-    mkdir -p ".project/works/spec-$RUN_NUMBER"
-    echo "フォルダを作成しました: .project/works/spec-$RUN_NUMBER"
-
-    # ロックは自動的に解放される
-    exit 0
   fi
 done
 

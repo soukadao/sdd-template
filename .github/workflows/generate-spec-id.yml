@@ -1,6 +1,11 @@
 name: Generate Spec ID
 on:
   workflow_dispatch:
+    inputs:
+      request_id:
+        description: 'Request ID for identifying this workflow run'
+        required: false
+        type: string
 jobs:
   generate-spec-id:
     runs-on: ubuntu-latest
@@ -12,6 +17,11 @@ jobs:
           SPEC_ID=${{ github.run_number }}
           echo "spec_id=$SPEC_ID" >> $GITHUB_OUTPUT
 
+          # Request IDがあれば出力
+          if [ -n "${{ inputs.request_id }}" ]; then
+            echo "Request ID: ${{ inputs.request_id }}"
+          fi
+
       - name: Output result
         run: |
-          echo "${{ steps.generate.outputs.spec_id }}"
+          echo "Spec ID: ${{ steps.generate.outputs.spec_id }}"
