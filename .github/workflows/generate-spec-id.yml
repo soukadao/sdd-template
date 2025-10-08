@@ -1,0 +1,19 @@
+name: Generate Spec ID
+on:
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  generate-spec-id:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Spec ID from run number
+        id: generate
+        run: |
+          # GitHub Actionsが自動管理する実行回数を使用
+          SPEC_ID=${{ github.run_number }}
+          echo "spec_id=$SPEC_ID" >> $GITHUB_OUTPUT
+      - name: Output result
+        run: |
+          echo "${{ steps.generate.outputs.spec_id }}"
