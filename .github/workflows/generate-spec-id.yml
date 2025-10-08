@@ -2,7 +2,7 @@ name: Generate Spec ID
 on:
   workflow_dispatch:
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: generate-spec-id
   cancel-in-progress: false
 jobs:
   generate-spec-id:
