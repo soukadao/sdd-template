@@ -3,14 +3,6 @@
 
 WORKFLOW_FILE_NAME="generate-spec-id.yml"
 
-# 実行中またはキュー待ちのワークフローをチェック
-RUNNING=$(gh run list --workflow "$WORKFLOW_FILE_NAME" --json status -q '[.[] | select(.status == "in_progress" or .status == "queued" or .status == "waiting")] | length')
-
-if [ "$RUNNING" -gt 0 ]; then
-  echo "ワークフローは既に実行中またはキュー待ちです。完了するまでお待ちください。"
-  exit 1
-fi
-
 echo "ワークフローを開始します..."
 
 # ワークフロー実行前の最新run_numberを記録
@@ -19,22 +11,33 @@ BEFORE_RUN_NUMBER=$(gh run list --workflow="$WORKFLOW_FILE_NAME" --limit=1 --jso
 # ワークフローを実行
 gh workflow run "$WORKFLOW_FILE_NAME"
 
-echo "ワークフローの開始を待っています..."
+echo "ワークフローの完了を待っています..."
 
-# 新しいワークフローが開始されるまで待機（最大30秒）
-MAX_WAIT=30
+# 新しいワークフローが完了するまで待機（最大120秒）
+MAX_WAIT=120
 ELAPSED=0
+
 while [ $ELAPSED -lt $MAX_WAIT ]; do
-  sleep 2
-  ELAPSED=$((ELAPSED + 2))
+  sleep 3
+  ELAPSED=$((ELAPSED + 3))
 
-  LATEST_RUN=$(gh run list --workflow="$WORKFLOW_FILE_NAME" --limit=1 --json databaseId,number,status -q '.[0]')
-  CURRENT_RUN_NUMBER=$(echo "$LATEST_RUN" | jq -r '.number // 0')
+  # BEFORE_RUN_NUMBERより大きい番号で、完了したものを探す
+  COMPLETED_RUN=$(gh run list --workflow="$WORKFLOW_FILE_NAME" --limit=10 --json number,status,conclusion,createdAt | \
+    jq -r --arg before "$BEFORE_RUN_NUMBER" '
+      [.[] | select(.number > ($before | tonumber) and .status == "completed")]
+      | sort_by(.createdAt)
+      | .[0]
+      | select(. != null)
+    ')
 
-  # 新しいワークフローが検出されたか確認
-  if [ "$CURRENT_RUN_NUMBER" -gt "$BEFORE_RUN_NUMBER" ]; then
-    RUN_ID=$(echo "$LATEST_RUN" | jq -r '.databaseId')
-    RUN_NUMBER=$CURRENT_RUN_NUMBER
+  if [ -n "$COMPLETED_RUN" ]; then
+    RUN_NUMBER=$(echo "$COMPLETED_RUN" | jq -r '.number')
+    CONCLUSION=$(echo "$COMPLETED_RUN" | jq -r '.conclusion')
+
+    if [ "$CONCLUSION" != "success" ]; then
+      echo "エラー: ワークフローが失敗しました (conclusion: $CONCLUSION)"
+      exit 1
+    fi
 
     echo "生成されたSpec ID: $RUN_NUMBER"
     echo "フォルダ名: spec-$RUN_NUMBER"
@@ -43,9 +46,10 @@ while [ $ELAPSED -lt $MAX_WAIT ]; do
     mkdir -p ".project/works/spec-$RUN_NUMBER"
     echo "フォルダを作成しました: .project/works/spec-$RUN_NUMBER"
 
+    # ロックは自動的に解放される
     exit 0
   fi
 done
 
-echo "エラー: ${MAX_WAIT}秒待機しましたが、ワークフローの開始を確認できませんでした。"
+echo "エラー: ${MAX_WAIT}秒待機しましたが、ワークフローの完了を確認できませんでした。"
 exit 1
