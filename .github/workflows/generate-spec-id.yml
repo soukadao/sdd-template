@@ -3,32 +3,11 @@ on:
   workflow_dispatch:
 concurrency:
   group: generate-spec-id
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   generate-spec-id:
     runs-on: ubuntu-latest
     steps:
-      - name: Check for running workflows
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          # 現在の実行ID
-          CURRENT_RUN_ID=${{ github.run_id }}
-
-          # 実行中またはキュー待ちのワークフローを確認
-          RUNNING=$(gh run list \
-            --repo ${{ github.repository }} \
-            --workflow generate-spec-id.yml \
-            --json databaseId,status \
-            --jq '[.[] | select((.status == "in_progress" or .status == "queued" or .status == "waiting") and .databaseId != '$CURRENT_RUN_ID')] | length')
-
-          if [ "$RUNNING" -gt 0 ]; then
-            echo "警告: 他に $RUNNING 個のワークフローが実行中またはキュー待ちです"
-            echo "concurrency設定により、このジョブは順次実行されます"
-          else
-            echo "実行中の他のワークフローはありません"
-          fi
-
       - name: Generate Spec ID from run number
         id: generate
         run: |
